@@ -93,7 +93,7 @@
         
         <main>
           <!-- ==========< Start Album Section >=========== -->
-          <section class="container">
+          <section class="container position-relative">
             <div class="row">
             <div class="img-item col-6">
               <img class="img-fluid p-3" src="images/wedding.png" alt="wedding">
@@ -102,13 +102,29 @@
             <div class="content-item col-6">
               <h1 class="mt-5 pt-5">Every moment is Precious </h1>
               <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-              <button>
+              <button class="btn bg-primary text-white " id="LiveToastBtn">
                 Explore our album <i class="fa-solid fa-arrow-right-long"></i>
               </button>
               
               <!-- ------< Start bootstfrap toast >------- -->
 
-              <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+
+              <div class="position-absolute top-0 end-0 p-2" style="z-index: 11;">
+                <div class="toast" id="LiveToast">
+                  <div class="toast-header shadow">
+                    <!-- <img src="" class="img-thumbnail rounded me-2" style="width: 30px;"> -->
+                    <i class="fa-solid fa-bell text-warning px-5"></i>
+                    <strong class="me-auto text-primary">New Messege</strong>
+                  <small>Just Now</small>
+                  <button class="btn-close" data-bs-dismiss="toast"></button>
+                  </div>
+                  <div class="toast-body">
+                    <p class="text-primary h5">This is Toast bar</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
               <img src="..." class="rounded me-2" alt="...">
               <strong class="me-auto">Bootstrap</strong>
@@ -118,7 +134,7 @@
               <div class="toast-body">
               Hello, world! This is a toast message.
               </div>
-              </div>
+              </div> -->
               <!-- ------< End bootstfrap toast >------- -->
             </div>
             </div>
@@ -130,6 +146,16 @@
 
         </main>
 
+        <script>
+          var toastTrigger = document.getElementById ("LiveToastBtn")
+          var toastLiveExample = document.getElementById ("LiveToast")
+          if (toastTrigger){
+            toastTrigger.addEventListener("click", function (){
+              var toast = new bootstrap.Toast(toastLiveExample)
+              toast.show()
+            })
+          }
+        </script>
 
 
 
